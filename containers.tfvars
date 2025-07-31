@@ -1,10 +1,14 @@
 containers = [
   {
-    image = "hello:latest"
-    name  = "hello"
+    image = "nextcloud"
+    name  = "nextcloud"
+    apply = true
+    port  = 80
   },
   {
-    image = "nginx:latest"
+    image = "nginx"
     name  = "nginx"
+    apply = true
+    port  = 8080
   }
 ]

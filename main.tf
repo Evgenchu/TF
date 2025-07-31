@@ -5,7 +5,7 @@ locals {
         length(split(":", container.image)) == 1 ? "${container.image}:latest" : container.image
       )
     })
-    if container.apply == true
+    if container.important == true
   }
 }
 

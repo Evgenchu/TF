@@ -1,8 +1,8 @@
 variable "containers" {
   type = list(object({
-    image = string
-    name  = string
-    apply = bool
-    port  = number
+    image     = string
+    name      = string
+    important = bool
+    port      = number
   }))
 }

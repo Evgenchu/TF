@@ -2,7 +2,11 @@ variable "containers" {
   type = list(object({
     image     = string
     name      = string
-    important = bool
+    important = optional(bool)
     port      = number
   }))
+  validation {
+    condition     = alltrue([for container in var.containers : container.port < 65535 && container.port > 0])
+    error_message = "Port numer should be between 0 and 65535!"
+  }
 }

@@ -1,7 +1,7 @@
 containers = [
   {
-    image     = "nextcloud"
-    name      = "nextcloud"
+    image     = "python"
+    name      = "python"
     important = true
     port      = 80
   },

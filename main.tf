@@ -20,9 +20,7 @@ resource "docker_container" "important_container" {
   name         = "${each.value.name}_container"
   image        = docker_image.latest[each.key].image_id
   network_mode = "bridge"
-  lifecycle {
-    create_before_destroy = true
-  }
+  command      = coalesce(each.value.command, [])
   ports {
     internal = 80
     external = each.value.port
@@ -32,5 +30,4 @@ resource "docker_container" "important_container" {
 output "container_names" {
   value       = [for container in docker_container.important_container : container.name]
   description = "container names"
-  sensitive   = true
 }

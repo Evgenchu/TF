@@ -4,6 +4,7 @@ containers = [
     name      = "python"
     important = true
     port      = 80
+    command   = ["sleep", "50000"]
   },
   {
     image     = "nginx"

@@ -4,6 +4,7 @@ variable "containers" {
     name      = string
     important = optional(bool)
     port      = number
+    command   = optional(list(string))
   }))
   validation {
     condition     = alltrue([for container in var.containers : container.port < 65535 && container.port > 0])

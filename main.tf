@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 3.0.1"
+    }
+  }
+  required_version = "~> 1.12.2"
+}
+
 locals {
   important_containers = {
     for container in var.containers : container.name => container
@@ -27,7 +37,3 @@ resource "docker_container" "important_container" {
   }
 }
 
-output "container_names" {
-  value       = [for container in docker_container.important_container : container.name]
-  description = "container names"
-}

@@ -3,6 +3,3 @@
 terraform.tfstate*
 *.tfstate
 *.tfstate*
-docker
-*.json
-docker-destroy
